@@ -11,7 +11,7 @@
     "dev": "ts-node-dev src/index.ts",
     "start": "node build/index.js",
     "lint": "eslint .",
-    "test": "npx vitest run"
+    "test": "npx vitest run --dir src/tests"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
