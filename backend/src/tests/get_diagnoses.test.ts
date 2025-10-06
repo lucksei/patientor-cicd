@@ -4,10 +4,10 @@ import app from '../index';
 
 const api = supertest(app);
 
-describe('GET /api/patients', () => {
-  test('returns all patients', async () => {
-    const response = await api.get('/api/patients');
+describe('GET /api/diagnoses', () => {
+  test('returns all diagnoses', async () => {
+    const response = await api.get('/api/diagnoses');
     expect(response.status).toBe(200);
-    expect(response.body).toHaveLength(5);
+    expect(response.body).toHaveLength(15);
   });
 });

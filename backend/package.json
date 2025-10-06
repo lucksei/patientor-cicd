@@ -4,14 +4,14 @@
   "description": "Helsinki Fullstack course, part 9, Patientor backend for existing frontend",
   "license": "ISC",
   "author": "",
-  "type": "module",
+  "type": "commonjs",
   "main": "",
   "scripts": {
     "tsc": "tsc",
     "dev": "ts-node-dev src/index.ts",
     "start": "node build/index.js",
     "lint": "eslint .",
-    "test": "npx vitest run --dir src/tests"
+    "test": "npx vitest run --config vitest.config.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
