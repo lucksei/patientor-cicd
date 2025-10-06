@@ -4,7 +4,7 @@
   "description": "Helsinki Fullstack course, part 9, Patientor backend for existing frontend",
   "license": "ISC",
   "author": "",
-  "type": "commonjs",
+  "type": "module",
   "main": "",
   "scripts": {
     "tsc": "tsc",
