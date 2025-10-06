@@ -1,0 +1,44 @@
+name: Deployment Pipeline
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      
+      # Build the frontend
+      - name: Install frontend dependencies
+        run: |
+          cd frontend
+          npm install
+      - name: Build frontend
+        run: |
+          cd frontend
+          npm run build
+
+      # Build the backend
+      - name: Install backend dependencies
+        run: |
+          cd backend
+          npm install
+      - name: Build backend
+        run: |
+          cd backend
+          npm run build
+
+      # Execute tests for the backend
+      # Execute tests for the frontend 
+      # Deploy to Render

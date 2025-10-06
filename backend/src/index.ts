@@ -1,10 +1,10 @@
 import express from 'express';
+import path from 'path';
 import diagnosesRouter from './routes/diagnoses';
 import patientsRotuer from './routes/patients';
 import { errorMiddleware } from './middlewares';
 
 const app = express();
-
 app.use(express.json());
 
 // Routes
@@ -16,6 +16,12 @@ app.get('/api/ping', (_req, res) => {
 });
 
 app.use(errorMiddleware);
+
+// Serve static files (frontend)
+app.use(express.static('../frontend/dist'));
+app.get(/.*/, (_req, res) => {
+  res.sendFile(path.resolve('frontend/dist/index.html'));
+});
 
 const PORT = 3000;
 app.listen(PORT, () => {
