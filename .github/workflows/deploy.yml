@@ -40,5 +40,9 @@ jobs:
           npm run tsc
 
       # Execute tests for the backend
+      - name: Run backend tests
+        run: |
+          cd backend
+          npm run test
       # Execute tests for the frontend 
       # Deploy to Render
