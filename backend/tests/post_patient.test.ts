@@ -1,6 +1,6 @@
 import { test, describe, expect } from 'vitest';
 import supertest from 'supertest';
-import app from '../index';
+import app from '../src/index';
 
 const api = supertest(app);
 

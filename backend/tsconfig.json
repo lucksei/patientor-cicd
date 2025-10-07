@@ -42,5 +42,5 @@
     "moduleDetection": "force",
     "skipLibCheck": true
   },
-  "exclude": ["vitest.config.ts", "node_modules", "build"]
+  "exclude": ["node_modules", "build", "vitest.config.ts", "tests/**/*"]
 }
