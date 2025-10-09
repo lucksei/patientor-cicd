@@ -24,6 +24,46 @@ interface AlertType {
   message: string;
 }
 
+export const PatientInfoPageContainer = (props: {
+  patient: Patient;
+  alert: AlertType | undefined;
+  diagnoses: Diagnosis[];
+  handleSubmit: (entry: EntryWithoutId) => Promise<void>;
+}) => {
+  const { patient, alert, diagnoses, handleSubmit } = props;
+  return (
+    <>
+      <Card sx={{ my: 2 }}>
+        <CardContent>
+          <Typography
+            component="h3"
+            variant="h5"
+            sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}
+          >
+            {patient.name}
+            {patient.gender === 'male' ? <MaleIcon /> : <FemaleIcon />}
+          </Typography>
+          <Divider sx={{ mt: 2 }} />
+          <List>
+            <ListItem>Birth: {patient.dateOfBirth}</ListItem>
+            <ListItem>SSN: {patient.ssn}</ListItem>
+            <ListItem>Occupation: {patient.occupation}</ListItem>
+          </List>
+          <Typography component="h4" variant="h6">
+            Entries
+          </Typography>
+          {alert && <Alert severity={alert?.type}>{alert?.message}</Alert>}
+          <Entries
+            entries={patient.entries}
+            handleSubmit={handleSubmit}
+            diagnosisCodesOptions={diagnoses.map((diagnosis) => diagnosis.code)}
+          />
+        </CardContent>
+      </Card>
+    </>
+  );
+};
+
 const PatientInfoPage = () => {
   const { patientId } = useParams();
   const [patient, setPatient] = useState<Patient | undefined>(undefined);
@@ -74,35 +114,12 @@ const PatientInfoPage = () => {
   };
 
   return (
-    <>
-      <Card sx={{ my: 2 }}>
-        <CardContent>
-          <Typography
-            component="h3"
-            variant="h5"
-            sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}
-          >
-            {patient.name}
-            {patient.gender === 'male' ? <MaleIcon /> : <FemaleIcon />}
-          </Typography>
-          <Divider sx={{ mt: 2 }} />
-          <List>
-            <ListItem>Birth: {patient.dateOfBirth}</ListItem>
-            <ListItem>SSN: {patient.ssn}</ListItem>
-            <ListItem>Occupation: {patient.occupation}</ListItem>
-          </List>
-          <Typography component="h4" variant="h6">
-            Entries
-          </Typography>
-          {alert && <Alert severity={alert?.type}>{alert?.message}</Alert>}
-          <Entries
-            entries={patient.entries}
-            handleSubmit={handleSubmit}
-            diagnosisCodesOptions={diagnoses.map((diagnosis) => diagnosis.code)}
-          />
-        </CardContent>
-      </Card>
-    </>
+    <PatientInfoPageContainer
+      patient={patient}
+      alert={alert}
+      diagnoses={diagnoses}
+      handleSubmit={handleSubmit}
+    />
   );
 };
 
