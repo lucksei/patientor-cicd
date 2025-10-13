@@ -52,9 +52,9 @@ jobs:
           npm run test
 
       # Deploy to Render
-      - name: Deploy to Render
-        uses: JorgeLNJunior/render-deploy@v1.4.5
+      - name: Render Deployment
+        if: ${{ github.event_name == 'push'}}
+        uses: sws2apps/render-deployment@v2.0.0 
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          service_id: ${{ secrets.RENDER_SERVICE_ID }}
-          api_key: ${{ secrets.RENDER_API_KEY }}
+          serviceId: ${{ secrets.RENDER_SERVICE_ID }}
+          apiKey: ${{ secrets.RENDER_API_KEY }}
