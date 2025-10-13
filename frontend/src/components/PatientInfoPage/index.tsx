@@ -74,6 +74,27 @@ const PatientInfoPage = () => {
   };
 
   return (
+    <PatientInfoPageContainer
+      patient={patient}
+      alert={alert}
+      entries={
+        <Entries
+          entries={patient.entries}
+          handleSubmit={handleSubmit}
+          diagnosisCodesOptions={diagnoses.map((diagnosis) => diagnosis.code)}
+        />
+      }
+    />
+  );
+};
+
+export const PatientInfoPageContainer = (props: {
+  patient: Patient;
+  alert: AlertType | undefined;
+  entries: JSX.Element;
+}) => {
+  const { patient, alert, entries } = props;
+  return (
     <>
       <Card sx={{ my: 2 }}>
         <CardContent>
@@ -95,11 +116,7 @@ const PatientInfoPage = () => {
             Entries
           </Typography>
           {alert && <Alert severity={alert?.type}>{alert?.message}</Alert>}
-          <Entries
-            entries={patient.entries}
-            handleSubmit={handleSubmit}
-            diagnosisCodesOptions={diagnoses.map((diagnosis) => diagnosis.code)}
-          />
+          {entries}
         </CardContent>
       </Card>
     </>

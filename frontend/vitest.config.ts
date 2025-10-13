@@ -7,7 +7,8 @@ export default defineConfig({
       './src/components/**/*.test.tsx',
     ],
     environment: 'jsdom',
+    isolate: true,
     globals: true,
-    setupFiles: ['./testSetup.ts'],
+    // setupFiles: ['./testSetup.ts'],
   },
 });
