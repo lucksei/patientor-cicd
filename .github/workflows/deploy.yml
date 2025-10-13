@@ -44,5 +44,17 @@ jobs:
         run: |
           cd backend
           npm run test
+      
       # Execute tests for the frontend 
+      - name: Run frontend tests
+        run: |
+          cd frontend
+          npm run test
+
       # Deploy to Render
+      - name: Deploy to Render
+        uses: JorgeLNJunior/render-deploy@v1.4.5
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          service_id: ${{ secrets.RENDER_SERVICE_ID }}
+          api_key: ${{ secrets.RENDER_API_KEY }}
