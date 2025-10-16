@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import { vi, describe, test, expect } from 'vitest';
 import { PatientInfoPageContainer } from './index';
+import { vi, describe, test, expect } from 'vitest';
 import { Patient, Gender } from '../../types';
 
 vi.mock('../../services/patients');

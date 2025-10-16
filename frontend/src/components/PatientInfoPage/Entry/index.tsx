@@ -8,15 +8,6 @@ import WorkIcon from '@mui/icons-material/Work';
 import HealthRatingBar from '../../HealthRatingBar';
 import BaseEntry from './BaseEntry';
 
-import { vi } from 'vitest';
-import { cleanup } from '@testing-library/react';
-
-// Cleanup after each test
-afterEach(() => {
-  cleanup();
-  vi.resetAllMocks();
-});
-
 import type { Diagnosis, Entry as EntryType } from '../../../types';
 
 const Entry = (props: { entry: EntryType }) => {
