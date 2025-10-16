@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import { vi, describe, test, expect } from 'vitest';
+import { vi, describe, expect, test } from 'vitest';
 import PatientListPage from './index';
 import { Patient, Gender } from '../../types';
 

@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import { describe, test, expect } from 'vitest';
 import '@testing-library/jest-dom';
 import { EntryContainer } from '.';
 import { Entry as EntryType } from '../../../types';

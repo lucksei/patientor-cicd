@@ -17,6 +17,11 @@ app.get('/api/ping', (_req, res) => {
 
 app.use(errorMiddleware);
 
+// Serve healthcheck endpoint
+app.get('/health', (_req, res) => {
+  res.send('ok');
+});
+
 // Serve static files (frontend)
 app.use(express.static('../frontend/dist'));
 app.get(/.*/, (_req, res) => {
