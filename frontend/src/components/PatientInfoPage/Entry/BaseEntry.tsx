@@ -3,10 +3,11 @@ import type {
   Diagnosis as DiagnosisType,
   Entry as EntryType,
 } from '../../../types';
+import { ReactElement } from 'react';
 
 const BaseEntry = (props: {
-  entryTypeLabel: JSX.Element;
-  extra: JSX.Element;
+  entryTypeLabel: ReactElement;
+  extra: ReactElement;
   entry: EntryType;
   diagnoses: DiagnosisType[];
 }) => {
