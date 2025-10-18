@@ -116,11 +116,11 @@ jobs:
       # Can use keywords #none, #major, #minor, #patch inside the commit message to bump the desired version
       - name: Bump version and push tag
         if: ${{ github.event_name == 'push' }}
-        uses: anothrNick/github-tag-action@1.75.0
+        uses: anothrNick/github-tag-action@4ed44965e0db8dab2b466a16da04aec3cc312fd8
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG_PREFIX: v
           PRERELEASE: true
           DEFAULT_BUMP: patch
-          DRY_RUN: false # NOTE: set to true for testing without creating tags 
+          # DRY_RUN: false # NOTE: set to true for testing without creating tags 
 

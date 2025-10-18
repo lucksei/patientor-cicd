@@ -57,7 +57,7 @@ export const EntryContainer = (props: {
               sx={{ display: 'flex', alignItems: 'center' }}
             >
               <MedicalServicesIcon />
-              <Box>Health Check</Box>
+              <Box component="span">Health Check</Box>
             </Typography>
           }
           extra={
@@ -82,7 +82,7 @@ export const EntryContainer = (props: {
               sx={{ display: 'flex', alignItems: 'center' }}
             >
               <WorkIcon />
-              <Box>Occupational Healthcare</Box>
+              <Box component="span">Occupational Healthcare</Box>
             </Typography>
           }
           extra={
@@ -110,7 +110,7 @@ export const EntryContainer = (props: {
               sx={{ display: 'flex', alignItems: 'center' }}
             >
               <LocalHospitalIcon />
-              <Box>Hospital</Box>
+              <Box component="span">Hospital</Box>
             </Typography>
           }
           extra={

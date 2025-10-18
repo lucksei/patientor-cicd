@@ -6,7 +6,7 @@
 
 Patientor is a full-stack healthcare application that allows managing patients, their entries, and associated diagnoses. This project is a continuation of [Part 9 - Typescript from the Full-Stack Open course by Helsinki University](https://fullstackopen.com/en/part9). The backend is built with Node.js + Express, and the frontend uses React + Vite.
 
-### Running the Application
+## Running the Application
 
 ### Backend
 
@@ -64,3 +64,10 @@ Test the frontend - Component tests
 ```bash
 npm run test
 ```
+
+## CI/CD Summary
+
+- Automated build and test pipeline
+- Deployment to Render
+- Automatic semver tags
+- Protected `main` branch requiring a pull request and a successful build

@@ -1,5 +1,5 @@
 import { isAxiosError, AxiosError } from 'axios';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ReactElement } from 'react';
 import { useParams } from 'react-router-dom';
 import {
   Alert,
@@ -91,7 +91,7 @@ const PatientInfoPage = () => {
 export const PatientInfoPageContainer = (props: {
   patient: Patient;
   alert: AlertType | undefined;
-  entries: JSX.Element;
+  entries: ReactElement;
 }) => {
   const { patient, alert, entries } = props;
   return (
